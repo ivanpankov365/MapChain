@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
     <script src="deployContract.js"></script>
+    <script src="createQestSubmit.js"></script>
     <script>
         if (typeof web3 !== 'undefined') {
             web3 = new Web3(web3.currentProvider);
@@ -14,30 +15,19 @@
             // set the provider you want from Web3.providers
             alert('Please activate MetaMask Plugin and reload page! You can find it here: https://metamask.io/')
         }
-
-        /*let mapchainContract = createContract();
-        let mapchain = deployContract(mapchainContract, 2, 3);*/
-
-        /*var _price = 2;/!* var of type uint256 here *!/ ;
-        var _steps = 3;/!* var of type uint256 here *!/ ;
-        var mapchainContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"Rating_game","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"current_balance_player","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"current_step","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"update_step","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"stopGame","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"add_balance","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"take_deposit_player","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"Game_time","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"current_amount_owner","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"take_amount_owner","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"joinGame","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"status_game","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_price","type":"uint256"},{"name":"_steps","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]);
-        var mapchain = mapchainContract.new(
-            _price,
-            _steps,
-            {
-                from: web3.eth.accounts[0],
-                data: '0x608060405234801561001057600080fd5b5060405160408061059883398101604052805160209091015160006003819055600481905560018054600160a860020a031916331790556002929092556005556006819055600755610531806100676000396000f3006080604052600436106100b95763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416632b0579df81146100be5780632d4c5ab9146100e557806349613c17146100fa5780634ec0bcf41461010f57806383bd72ba146101265780638d98d69d1461013b57806390278ea3146101435780639e5ef27014610158578063a7ded5d21461016d578063c92499c614610182578063d4f77b1c14610197578063e3c057fa1461019f575b600080fd5b3480156100ca57600080fd5b506100d36101c8565b60408051918252519081900360200190f35b3480156100f157600080fd5b506100d36101ce565b34801561010657600080fd5b506100d36101d4565b34801561011b57600080fd5b506101246101da565b005b34801561013257600080fd5b50610124610249565b6101246102d5565b34801561014f57600080fd5b5061012461033c565b34801561016457600080fd5b506100d3610389565b34801561017957600080fd5b506100d36103b3565b34801561018e57600080fd5b506101246103b9565b610124610423565b3480156101ab57600080fd5b506101b46104c5565b604080519115158252519081900360200190f35b60075490565b60035490565b60065490565b600054600160a060020a031633146101f157600080fd5b60015460a060020a900460ff16151561020957600080fd5b6005546006541061021957600080fd5b6002546003541161022957600080fd5b600254600480548201905560038054919091039055600680546001019055565b60008054600160a060020a0316331461026157600080fd5b60015460a060020a900460ff16151561027957600080fd5b600060035411156102ab575060008054600160a060020a03168152600a60205260408120600380548254018255919091555b504260095560006006556001805474ff000000000000000000000000000000000000000019169055565b600054600160a060020a031633146102ec57600080fd5b6001805460a060020a900460ff1615151461030657600080fd5b6000341161031357600080fd5b6000805473ffffffffffffffffffffffffffffffffffffffff1916331790556003805434019055565b6000610347336104d5565b9050600081111561038657604051339082156108fc029083906000818181858888f1935050505015801561037f573d6000803e3d6000fd5b5060006003555b50565b6001805460009160a060020a90910460ff16151514156103a857426009555b506008546009540390565b60045490565b600154600160a060020a031633146103d057600080fd5b6004546000106103df57600080fd5b600154600454604051600160a060020a039092169181156108fc0291906000818181858888f1935050505015801561041b573d6000803e3d6000fd5b506000600455565b600254341161043157600080fd5b60015460a060020a900460ff161561044857600080fd5b6000805473ffffffffffffffffffffffffffffffffffffffff191633178082556001805474ff0000000000000000000000000000000000000000191660a060020a178155346003556006839055600780549091019055426008556009919091556104ba90600160a060020a03166104d5565b600380549091019055565b60015460a060020a900460ff1690565b600160a060020a0381166000908152600a6020526040812080548210156104ff5780546000825591505b509190505600a165627a7a723058203ed810056055ea6f9df079f9559d22e01f6eff0fdf0891879db8d80a1c5597d30029',
-                gas: '4700000'
-            }, function (e, contract){
-                console.log(e, contract);
-                if (typeof contract.address !== 'undefined') {
-                    console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
-                }
-            })*/
     </script>
 </head>
 
 <body>
+<h1>Hi! Here you can create your new super mega quest!!</h1>
+<form action="">
+    <p><b>Price for the one step:</b><br>
+        <input id="price" type="text" size="40" required>
+    </p>
+    <p><b>Number of steps:</b><br>
+        <input id="steps" type="text" size="40" required>
+    </p><input type="button" onclick="createQestSubmit()" value="Create my fucking Quest"><br />
+</form>
 
 </body>
 

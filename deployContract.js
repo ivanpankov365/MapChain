@@ -5,7 +5,7 @@ function createContract(){
 }
 
 function deployContract(contract, price, steps) {
-    return mapchainContract.new(
+    return contract.new(
         price,
         steps,
         {
@@ -27,3 +27,4 @@ function createQest(price, steps){
     console.log('ADDRESS');
     console.log(contractAddress);
 }
+
