@@ -1,5 +1,5 @@
 // Получить токен
-function getToken(email,password) {
+function getToken(email,password, lat, lng) {
     return new Promise((resolve,reject) => {
         let url = 'https://staging-api.naviaddress.com/api/v1.5/Sessions';
         let params = {
