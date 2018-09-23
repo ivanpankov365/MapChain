@@ -27,11 +27,12 @@ function createNaviaddress(token, lat, lng) {
    //     navigator.geolocation.getCurrentPosition(
    //         (position)=>{
    //             let coords = position.coords;
-
+console.log('Creatre lat', lat);
+    console.log('Creatre lng', lng)
                 let url = 'https://staging-api.naviaddress.com/api/v1.5/addresses/';
                 let body = {
-                    lat: /*'55.761315757185166',*/lat,
-                    lng: /*'37.65203475952149',*/lng,
+                    lat: lng,
+                    lng: lat,
                     address_type: "free",
                     default_lang: "ru"
                 };
@@ -103,7 +104,7 @@ function putNaviaddress(token,data) {
             body: JSON.stringify(body)
         }).then((res1) => {
         res1.json().then((res2) => {
-
+            console.log('res2',res2)
             //let r = res2.result;
             //location.href = "get.html?container="+r.container+'&naviaddress='+r.naviaddress;
         });
