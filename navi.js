@@ -23,15 +23,15 @@ function getToken(email,password) {
 }
 
 function createNaviaddress(token) {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position)=>{
-                let coords = position.coords;
+   // if (navigator.geolocation) {
+   //     navigator.geolocation.getCurrentPosition(
+   //         (position)=>{
+   //             let coords = position.coords;
 
                 let url = 'https://staging-api.naviaddress.com/api/v1.5/addresses/';
                 let body = {
-                    lat: coords.latitude,
-                    lng: coords.longitude,
+                    lat: '55.761315757185166',
+                    lng: '37.65203475952149',
                     address_type: "free",
                     default_lang: "ru"
                 };
@@ -51,11 +51,11 @@ function createNaviaddress(token) {
                         acceptNaviaddress(token,res2.result.container, res2.result.naviaddress);
                     });
                 });
-            });
+     //      });
 
-    } else {
-        alert("Геолокация не поддерживается вашим браузером");
-    }
+   // } else {
+   //     alert("Геолокация не поддерживается вашим браузером");
+   // }
 }
 
 // Подтверждаем навиадрес
@@ -88,8 +88,8 @@ function putNaviaddress(token,data) {
     let url = 'https://staging-api.naviaddress.com/api/v1.5/addresses/'
         +container+'/'+naviaddress+'?lang=ru';
     let body = {
-        name:document.getElementById("description").value,
-        description:'Создано программой Инвентаризатор: '+document.getElementById("description").value
+        name:/*document.getElementById("description").value*/'Vano Created',
+        description:'Создано программой MapChain: '
     };
 
     fetch(url,
@@ -103,8 +103,9 @@ function putNaviaddress(token,data) {
             body: JSON.stringify(body)
         }).then((res1) => {
         res1.json().then((res2) => {
-            let r = res2.result;
-            location.href = "get.html?container="+r.container+'&naviaddress='+r.naviaddress;
+
+            //let r = res2.result;
+            //location.href = "get.html?container="+r.container+'&naviaddress='+r.naviaddress;
         });
     });
 }
