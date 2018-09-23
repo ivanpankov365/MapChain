@@ -105,8 +105,36 @@ function putNaviaddress(token,data) {
         }).then((res1) => {
         res1.json().then((res2) => {
             console.log('res2',res2)
-            //let r = res2.result;
+
+            saveNavi(res2);
+            //naviResponse = res2.result;
+            //console.log('res2.result',res2.result);
             //location.href = "get.html?container="+r.container+'&naviaddress='+r.naviaddress;
         });
     });
+}
+
+function saveNavi(res2) {
+    step++
+
+
+    naviResponse = res2.result;
+    if (step == 1){
+        firstlng = lng;
+        firstlat = lat;
+    }
+
+    if (step == 2){
+        console.log('step == 1');
+        navi1 = '['+naviResponse.container+']'+naviResponse.naviaddress;
+    }
+    if (step == 3){
+        console.log('step == 2');
+        navi2 = '['+naviResponse.container+']'+naviResponse.naviaddress;
+    }
+    if (step == 4){
+        console.log('step == 3');
+        navi3 = '['+naviResponse.container+']'+naviResponse.naviaddress;
+    }
+
 }

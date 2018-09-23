@@ -9,3 +9,15 @@ let descriptionOfStep;
 let totalDescription;
 let firstlng;
 let firstlat;
+
+let navi1;
+let navi2;
+let navi3;
+
+let naviResponse;
+
+let contractAddress;
+
+let id = 20;
+
+let contractPrice;

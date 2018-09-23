@@ -9,10 +9,11 @@
     <!--<link href="css/ratchet.css" rel="stylesheet">-->
     <script src="navi.js"></script>
     <script src="config.js"></script>
+
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
     <script src="createQestSubmit.js"></script>
     <script src="deployContract.js"></script>
-    <script src="main.css"></script>
+    <!--//<script src="main.css"></script>-->
     <script src="quest.js"></script>
 
     <script>
@@ -58,6 +59,13 @@
             width: 21%;
             position: absolute;
             top: 200px;
+            margin: 0;
+            padding: 0;
+        }
+        #description_of_Quest {
+            height: 150px;
+            width: 70%;
+
             margin: 0;
             padding: 0;
         }
@@ -134,12 +142,14 @@
 
     <form id="create_contract_content" action="">
         <h8>Hi! Here you can create your new super mega quest!!</h8>
-        <p><b>Price for the one step:</b><br>
-            <input id="price" type="text" size="40" required>
+        <h10>Put description of your Quest</h10>
+        <p>
+            <textarea  id="description_of_Quest" placeholder="description of Quest" required></textarea>
         </p>
-        <p><b>Number of steps:</b><br>
-            <input id="steps" type="text" size="40" required>
-        </p><input class="my_button" type="button" onclick="createQestSubmit()" value="Create my Quest"><br />
+        <p><b>Price for your quest:</b><br>
+            <input id="_price" type="text" size="40" placeholder="$">
+        </p>
+        <input class="my_button" type="button" onclick="createQestSubmit()" value="Create my Quest"><br />
     </form>
 
 </div>
@@ -222,6 +232,7 @@
         $("#create_contract").hide();
     }
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtJsuDvrKcBeURzwglw1kfPDdOyEAEtPU&callback=initMap"
         async defer></script>
 </body>
