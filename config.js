@@ -18,6 +18,6 @@ let naviResponse;
 
 let contractAddress;
 
-let id = 20;
+let id = 50;
 
 let contractPrice;

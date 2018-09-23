@@ -39,7 +39,7 @@ function deployContract(contract, _price, _task1, _task2, _task3) {
                 let urlJSON = 'http://192.168.43.227:3000/contract';
                 let params = '{' +
                     '"id": "'+id+'",' +
-                    '"address": "https://rinkeby.etherscan.io/address/'+'contract.address'+'",' +
+                    '"address": "https://rinkeby.etherscan.io/address/'+contract.address+'",' +
                     '"price": "'+contractPrice+'",' +
                     '"lat": "'+firstlat+'",' +
                     '"long": "' + firstlng+ '",' +
