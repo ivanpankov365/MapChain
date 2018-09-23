@@ -119,7 +119,7 @@ function saveNavi(res2) {
 
 
     naviResponse = res2.result;
-    if (step == 1){
+    if (step == 2){
         firstlng = lng;
         firstlat = lat;
     }
