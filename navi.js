@@ -1,5 +1,5 @@
 // Получить токен
-function getToken(email,password, lat, lng) {
+function getToken(email,password) {
     return new Promise((resolve,reject) => {
         let url = 'https://staging-api.naviaddress.com/api/v1.5/Sessions';
         let params = {
@@ -22,7 +22,7 @@ function getToken(email,password, lat, lng) {
     });
 }
 
-function createNaviaddress(token) {
+function createNaviaddress(token, lat, lng) {
    // if (navigator.geolocation) {
    //     navigator.geolocation.getCurrentPosition(
    //         (position)=>{
@@ -30,8 +30,8 @@ function createNaviaddress(token) {
 
                 let url = 'https://staging-api.naviaddress.com/api/v1.5/addresses/';
                 let body = {
-                    lat: '55.761315757185166',
-                    lng: '37.65203475952149',
+                    lat: /*'55.761315757185166',*/lat,
+                    lng: /*'37.65203475952149',*/lng,
                     address_type: "free",
                     default_lang: "ru"
                 };
@@ -88,8 +88,8 @@ function putNaviaddress(token,data) {
     let url = 'https://staging-api.naviaddress.com/api/v1.5/addresses/'
         +container+'/'+naviaddress+'?lang=ru';
     let body = {
-        name:/*document.getElementById("description").value*/'Vano Created',
-        description:'Создано программой MapChain: '
+        name:nameQuest,
+        description: descriptionOfStep
     };
 
     fetch(url,

@@ -44,7 +44,7 @@
             padding: 0;*/
         }
 
-        #lef_panel {
+        #left_panel {
             height: 100%;
             width: 100%;
             position: absolute;
@@ -57,7 +57,7 @@
             height: 50%;
             width: 21%;
             position: absolute;
-            top: 100px;
+            top: 200px;
             margin: 0;
             padding: 0;
         }
@@ -67,6 +67,14 @@
             position: absolute;
             bottom: 100px;
             left: 70px;
+            margin: 0;
+            padding: 0;
+        }
+        #nameQuest {
+            height: 10%;
+            width: 21%;
+            position: absolute;
+            top: 100px;
             margin: 0;
             padding: 0;
         }
@@ -86,7 +94,18 @@
 
 </div>-->
 
-<div id="lef_panel">
+<div id="left_panel">
+    <h1>Create you Quest!</h1>
+    <script>
+        if(step == 1){
+            let leftPanel = document.getElementById('left_panel');
+            let nameQuest = document.createElement('textarea');
+            nameQuest.id = 'nameQuest';
+            nameQuest.placeholder = 'name of your Quest';
+            let textarea = document.getElementById('description_of_step');
+            leftPanel.insertBefore(nameQuest,textarea);
+        }
+    </script>
     <textarea id="description_of_step" placeholder="description of step" required></textarea><br><br>
     <button id="button" onclick="nextStep(lng,lat)">Create Next Step</button>
 </div>

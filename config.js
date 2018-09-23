@@ -3,3 +3,6 @@ let password = 'GreatTrango6b';
 
 let lng;
 let lat;
+let step = 1;
+let nameQuest;
+let descriptionOfStep;
