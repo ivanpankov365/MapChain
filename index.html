@@ -62,10 +62,19 @@
             padding: 0;
         }
         #button {
-            height: 10%;
-            width: 10%;
+            height: 8%;
+            width: 8%;
             position: absolute;
             bottom: 100px;
+            left: 70px;
+            margin: 0;
+            padding: 0;
+        }
+        #button_create {
+            height: 8%;
+            width: 8%;
+            position: absolute;
+            bottom: 30px;
             left: 70px;
             margin: 0;
             padding: 0;
@@ -78,21 +87,64 @@
             margin: 0;
             padding: 0;
         }
+
+        #create_contract {
+            display: inline;
+            z-index: 100;
+        }
+
+        *{
+            font-family: Areal;
+        }
+        #create_contract{
+            width:200px;
+            height:150px;
+            background-color: #ccc;
+            margin:0px auto;
+            padding:10px;
+            font-size:30px;
+            color: #fff;
+        }
+        #create_contract{
+            width:100%;
+            min-height:100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow:hidden;
+            position:fixed;
+            top:0px;
+        }
+        #create_contract_content{
+            font-family: Areal;
+            margin:40px auto 0px auto;
+            width:500px;
+            height: 70%;
+            padding:10px;
+            background-color: #c5c5c5;
+            border-radius:5px;
+            box-shadow: 0px 0px 10px #000;
+        }
+        .my_button{
+            font-family: Areal;
+            height:50px;
+        }
     </style>
 </head>
 <body>
-<!--<div id="lef_panel">
-    <h3>Hi! Here you can create your new super mega quest!!</h3>
-    <form action="">
+<div id="create_contract">
+
+    <form id="create_contract_content" action="">
+        <h8>Hi! Here you can create your new super mega quest!!</h8>
         <p><b>Price for the one step:</b><br>
             <input id="price" type="text" size="40" required>
         </p>
         <p><b>Number of steps:</b><br>
             <input id="steps" type="text" size="40" required>
-        </p><input type="button" onclick="createQestSubmit()" value="Create my fucking Quest"><br />
+        </p><input class="my_button" type="button" onclick="createQestSubmit()" value="Create my Quest"><br />
     </form>
 
-</div>-->
+</div>
+
+
 
 <div id="left_panel">
     <h1>Create you Quest!</h1>
@@ -108,6 +160,7 @@
     </script>
     <textarea id="description_of_step" placeholder="description of step" required></textarea><br><br>
     <button id="button" onclick="nextStep(lng,lat)">Create Next Step</button>
+    <button id="button_create" onclick="create()">Create Quest</button>
 </div>
 
 <div id="map"></div>
@@ -134,8 +187,8 @@
         });
         console.log('location.LatLng', location.lat());
         console.log('location.LatLng', location.lng());
-        lng = location.lng();
-        lat = location.lat();
+        lng = location.lat();
+        lat = location.lng();
         // markers.push(marker);
     }
 </script>
@@ -154,7 +207,21 @@
 
 
 </script>
-
+<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //Скрыть PopUp при загрузке страницы
+        PopUpHide();
+    });
+    //Функция отображения PopUp
+    function PopUpShow(){
+        $("#create_contract").show();
+    }
+    //Функция скрытия PopUp
+    function PopUpHide(){
+        $("#create_contract").hide();
+    }
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtJsuDvrKcBeURzwglw1kfPDdOyEAEtPU&callback=initMap"
         async defer></script>
 </body>

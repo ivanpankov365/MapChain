@@ -31,8 +31,8 @@ console.log('Creatre lat', lat);
     console.log('Creatre lng', lng)
                 let url = 'https://staging-api.naviaddress.com/api/v1.5/addresses/';
                 let body = {
-                    lat: lng,
-                    lng: lat,
+                    lat: lat,
+                    lng: lng,
                     address_type: "free",
                     default_lang: "ru"
                 };

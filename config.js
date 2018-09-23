@@ -6,3 +6,6 @@ let lat;
 let step = 1;
 let nameQuest;
 let descriptionOfStep;
+let totalDescription;
+let firstlng;
+let firstlat;
