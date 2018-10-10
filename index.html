@@ -11,6 +11,7 @@
     <script src="config.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
     <script src="createQestSubmit.js"></script>
     <script src="deployContract.js"></script>
     <!--//<script src="main.css"></script>-->
@@ -28,45 +29,43 @@
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
         #map {
-            height: 100%;
-            width: 77%;
+            height: 90%;
+            width: 74%;
             position: absolute;
-            left: 350px;
+            left: 24%;
+            top: 5%;
             margin: 0;
             padding: 0;
         }
+
+
         /* Optional: Makes the sample page fill the window. */
         html, body {
-           /* height: 100%;
-            width: 87%;
-            position: absolute;
-            left: 190px;
-            margin: 0;
-            padding: 0;*/
+            background-image: url('./images.jpg');
+            background-size: 100%;
         }
 
         #left_panel {
-            height: 100%;
-            width: 100%;
+            height: 93.9%;
+            width: 24%;
             position: absolute;
-            /*left: 350px;*/
             margin: 0;
             padding: 0;
-            background-color: snow;
         }
 
         #description_of_step {
-            font-size: 36px;
-            height: 50%;
-            width: 21%;
+            font-size: 26px;
+            height: 35%;
+            width: 80%;
             position: absolute;
             background-color: white;
-            top: 200px;
+            top: 40%;
+            left: 5%;
             margin: 0;
             padding: 0;
         }
         #description_of_Quest {
-            font-size: 36px;
+            font-size: 26px;
             height: 150px;
             width: 400px;
             background-color: white;
@@ -75,29 +74,30 @@
         }
         #button {
             height: 8%;
-            width: 8%;
+            width: 80.5%;
             position: absolute;
-            bottom: 100px;
-            left: 100px;
+            bottom: 12%;
+            left: 5%;
             margin: 0;
             padding: 0;
         }
         #button_create {
             height: 8%;
-            width: 8%;
+            width: 80.5%;
             position: absolute;
-            bottom: 30px;
-            left: 100px;
+            bottom: 0%;
+            left: 5%;
             margin: 0;
             padding: 0;
         }
         #nameQuest {
-            font-size: 36px;
+            font-size: 26px;
             height: 10%;
-            width: 21%;
+            width: 80%;
             position: absolute;
             background-color: white;
-            top: 100px;
+            left: 5%;
+            top: 25%;
             margin: 0;
             padding: 0;
         }
@@ -108,7 +108,7 @@
         }
 
         *{
-            font-family: Areal;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         #create_contract{
             width:200px;
@@ -146,40 +146,36 @@
             text-decoration:none;
             text-align:center;
             padding:11px 32px;
-            border:solid 1px #004F72;
-            -webkit-border-radius:4px;
-            -moz-border-radius:4px;
-            border-radius: 4px;
+            border:solid 0px #4b9196;
+            border-radius: 2px;
             font:18px Arial, Helvetica, sans-serif;
             font-weight:bold;
-            color:#E5FFFF;
-            background-color:#3BA4C7;
-            background-image: -moz-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
-            background-image: -webkit-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
-            background-image: -o-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
-            background-image: -ms-linear-gradient(top, #3BA4C7 0% ,#1982A5 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1982A5', endColorstr='#1982A5',GradientType=0 );
-            background-image: linear-gradient(top, #3BA4C7 0% ,#1982A5 100%);
-            -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-            -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;
-            box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+            color:#f0f0f0;
+            background-color:#4b9196;
+        }
+        .button:hover{
+            background-color:#337d82;
         }
 
-        .textarea{
-            display: block;
-            /*position: absolute;*/
-            z-index: 2;
+        textarea {
+            width: 80%;
             margin: 0;
-            border: 2px solid #74637f;
-            border-radius: 0;
+            border-radius: 1px;
             color: #444;
-            background-color: transparent;
-            overflow: auto;
+            text-align:center;
             resize: none;
-            transition: transform 1s;
+        }
+       #title {
+           font-size:18px;
+           position: absolute;
+           text-align: center;
+           left: 5%;
+           top: 2%;
         }
 
-
+        .letter {
+            color: #de3700;
+        }
     </style>
 </head>
 <body>
@@ -202,7 +198,10 @@
 
 
 <div id="left_panel">
-    <h1>Create you Quest!</h1>
+    <div id="title">
+        <h1><span class="letter">Map</span>Chain</h1>
+        <h1>Create you Quest!</h1>
+    </div>
     <script>
         if(step == 1){
             let leftPanel = document.getElementById('left_panel');
@@ -225,7 +224,8 @@
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 55.761315757185166, lng: 37.65203475952149},
-            zoom: 8
+            styles: mapStyle,
+            zoom: 11
         });
 
         google.maps.event.addListener(map, 'click', function(event) {
@@ -263,7 +263,7 @@
 
 
 </script>
-<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+
 <script>
     $(document).ready(function(){
         //Скрыть PopUp при загрузке страницы
